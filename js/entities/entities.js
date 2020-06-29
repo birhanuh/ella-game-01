@@ -79,12 +79,15 @@ game.PlayerEntity = me.Entity.extend({
     // handle collisions against other shapes
     me.collision.check(this);
 
-    if (this.body.falling) {
-      setTimeout(() => {
-        console.log("Player falled");
-        this.body.force.x = 0;
-        this.body.force.y = 0;
-      }, 3000);
+    // If object in not in viewport it probably has died
+    if (!this.inViewport) {
+      // fade the camera to white upon dying, reload the level, and then fade out back
+      me.game.viewport.fadeIn("#fff", 150, function () {
+        me.audio.play("die", false);
+        me.levelDirector.reloadLevel();
+        me.game.viewport.fadeOut("#fff", 150);
+        me.audio.pause("die");
+      });
     }
 
     // return true if we moved or if the renderable was updated
@@ -523,51 +526,6 @@ game.EnemyEntity = me.Sprite.extend({
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
       if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
-        this.renderable.flicker(750);
-      }
-      return false;
-    }
-    // Make all other objects solid
-    return true;
-  },
-});
-
-/**
- * an enemy Entity
- */
-game.RestartEntity = me.Entity.extend({
-  init: function (x, y, settings) {
-    // call the parent constructor
-    this._super(me.Entity, "init", [x, y, settings]);
-
-    // add a physic body
-    this.body = new me.Body(this);
-    // add a default collision shape
-    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-  },
-
-  // manage the enemy movement
-  update: function (dt) {
-    if (this.alive && this.body.falling) {
-      this.alive = false;
-      this.body.force.x = 0;
-    }
-    // check & update movement
-    this.body.update(dt);
-
-    // handle collisions against other shapes
-    me.collision.check(this);
-  },
-
-  /**
-   * colision handler
-   * (called when colliding with other objects)
-   */
-  onCollision: function (response, other) {
-    if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
-      // res.y >0 means touched by something on the bottom
-      // which mean at top position for this one
-      if (this.alive && response.overlapV.y === 0 && response.a.body.falling) {
         this.renderable.flicker(750);
       }
       return false;

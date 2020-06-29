@@ -100,13 +100,6 @@
     <property name="to" value="area01_old"/>
    </properties>
   </object>
-  <object id="45" name="restartEntity" x="-1.33167" y="570.667" width="1853.33" height="13.3333">
-   <properties>
-    <property name="duration" value="250"/>
-    <property name="fade" value="#000000"/>
-    <property name="to" value="area01"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="6" name="enemyies">
   <object id="2" name="bird" x="386.088" y="186.344" width="355" height="35">
@@ -118,13 +111,13 @@
     <property name="velX" type="int" value="2"/>
    </properties>
   </object>
-  <object id="3" name="slime" x="384.365" y="375.175" width="321" height="30">
+  <object id="3" name="slime" x="317.802" y="375.175" width="387.563" height="30">
    <properties>
     <property name="frameheight" type="int" value="30"/>
     <property name="framewidth" type="int" value="45"/>
    </properties>
   </object>
-  <object id="5" name="bird" x="915.412" y="286.621" width="247" height="35">
+  <object id="5" name="bird" x="925.922" y="285.453" width="256.342" height="35">
    <properties>
     <property name="animationspeed" type="int" value="200"/>
     <property name="frameheight" type="int" value="35"/>
@@ -133,7 +126,7 @@
     <property name="velX" type="int" value="2"/>
    </properties>
   </object>
-  <object id="6" name="slime" x="1408.27" y="373.811" width="292" height="30">
+  <object id="6" name="slime" x="1401.26" y="373.811" width="299.007" height="30">
    <properties>
     <property name="frameheight" type="int" value="30"/>
     <property name="framewidth" type="int" value="45"/>

@@ -4,6 +4,8 @@ var game = {
   data: {
     // score
     score: 0,
+    // score
+    life: 3,
   },
 
   // Run on page load.
@@ -48,7 +50,6 @@ var game = {
     me.pool.register("coin", game.CoinEntity);
     me.pool.register("bird", game.BirdEnemyEntity);
     me.pool.register("slime", game.SlimeEnemyEntity);
-    me.pool.register("restartEntity", game.RestartEntity);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, "left");

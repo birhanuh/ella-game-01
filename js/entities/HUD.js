@@ -8,8 +8,8 @@ game.HUD.Container = me.Container.extend({
   init: function () {
     // call the constructor
     this._super(me.Container, "init", [
-      50,
-      50,
+      25,
+      25,
       me.game.viewport.width - 300,
       50,
     ]);
@@ -83,7 +83,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
   draw: function (context) {
     // Set background container
     context.setColor("#fff");
-    context.fillRect(0, 0, 200, 60);
+    context.fillRect(0, 0, 250, 60);
 
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
     this.font.draw(

@@ -19,11 +19,22 @@ game.PlayerEntity = me.Entity.extend({
     // ensure the player is updated even when outside of the viewport
     this.alwaysUpdate = true;
 
+    // set a renderable
+    this.renderable = game.texture.createAnimationFromName([
+      "walk1",
+      "walk2",
+      "walk3",
+    ]);
+
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation("walk", [0, 1, 2, 3, 4, 5, 6, 7]);
+    this.renderable.addAnimation("walk", ["walk1", "walk2", "walk3"]);
+    this.renderable.addAnimation("stand", ["walk1"]);
+
+    // define a basic walking animation (using all frames)
+    // this.renderable.addAnimation("walk", [0, 1, 2, 3, 4, 5, 6, 7]);
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation("stand", [0]);
+    // this.renderable.addAnimation("stand", [0]);
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation("stand");

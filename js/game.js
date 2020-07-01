@@ -12,7 +12,7 @@ var game = {
   onload: function () {
     // Initialize the video.
     if (
-      !me.video.init(960, 640, {
+      !me.video.init(1024, 512, {
         wrapper: "screen",
         scale: "auto",
         scaleMethod: "flex",

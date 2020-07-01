@@ -28,7 +28,7 @@ game.HUD.Container = me.Container.extend({
     this.addChild(new game.HUD.ScoreItem(10, 15));
 
     // add our child score object at the top left corner
-    this.addChild(new game.HUD.LifeItem(this.width, 0));
+    this.addChild(new game.HUD.LifeItem(this.width, 20));
   },
 });
 
@@ -83,7 +83,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
   draw: function (context) {
     // Set background container
     context.setColor("#fff");
-    context.fillRect(0, 0, 250, 60);
+    context.fillRect(0, 0, 250, 58);
 
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
     this.font.draw(
@@ -110,7 +110,12 @@ game.HUD.LifeItem = me.Renderable.extend({
     // local copy of the global life
     this.life = -1;
 
-    console.log("console: ", game.data);
+    // Set life icon
+    const lifeIcon = new me.Sprite(0, 0, {
+      image: game.texture,
+      region: "elama",
+    });
+    this.lifeIcon = lifeIcon;
   },
 
   /**
@@ -136,8 +141,14 @@ game.HUD.LifeItem = me.Renderable.extend({
       renderer.drawImage(
         me.loader.getImage("elama"),
         this.pos.x + index * 50,
-        20
+        this.pos.y
       );
     }
+
+    // for (let index = 0; index < game.data.lives; index++) {
+    //   (this.lifeIcon.pos.x = this.pos.x + index * 50),
+    //     (this.lifeIcon.pos.y = this.pos.y);
+    //   this.lifeIcon.draw(renderer, 0, 0);
+    // }
   },
 });

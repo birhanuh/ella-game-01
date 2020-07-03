@@ -100,8 +100,8 @@
                  "type":"",
                  "visible":true,
                  "width":27,
-                 "x":106.451952380952,
-                 "y":245.439428571429
+                 "x":106.452,
+                 "y":245.439
                 }, 
                 {
                  "height":32,
@@ -200,11 +200,6 @@
                          "name":"framewidth",
                          "type":"int",
                          "value":32
-                        }, 
-                        {
-                         "name":"image",
-                         "type":"file",
-                         "value":"..\/img\/sprite\/spinning_coin_gold.png"
                         }],
                  "rotation":0,
                  "type":"",
@@ -552,8 +547,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":60.0033047619048,
-                 "x":225.948571428571,
+                 "width":60.0033,
+                 "x":225.949,
                  "y":325.333
                 }, 
                 {

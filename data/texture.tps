@@ -332,6 +332,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">img/sprite/spinning_coin_gold.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>64,8,128,16</rect>
+                <key>scale9Paddings</key>
+                <rect>64,8,128,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -346,6 +361,7 @@
             <filename>img/player/walk2.png</filename>
             <filename>img/player/walk3.png</filename>
             <filename>img/ent/dimond.png</filename>
+            <filename>img/sprite/spinning_coin_gold.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

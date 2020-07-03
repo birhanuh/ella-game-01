@@ -172,8 +172,25 @@ game.CoinEntity = me.CollectableEntity.extend({
   // extending the init function is not mandatory
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
+    console.log("CoinEntity settings", settings);
     // call the parent constructor
     this._super(me.CollectableEntity, "init", [x, y, settings]);
+
+    // this.image = new me.Sprite(1, 1, {
+    //   image: game.texture,
+    //   region: "spinning_coin_gold",
+    //   width: 32,
+    //   height: 32,
+    //   framewidth: 32,
+    //   frameheight: 32,
+    // });
+
+    // this.image.anchorPoint.set(0, 0);
+
+    this.body = new me.Body(this);
+    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+
+    // me.game.world.addChild(cion);
   },
 
   // this function is called by the engine, when
@@ -302,27 +319,33 @@ game.BirdEnemyEntity = me.Entity.extend({
    * collision handle
    */
   onCollision: function (response) {
-    // res.y >0 means touched by something on the bottom
-    // which mean at top position for this one
-    if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
-      // make it dead
-      this.alive = false;
-      //avoid further collision and delete it
-      this.body.setCollisionMask(me.collision.types.NO_OBJECT);
-      // set dead animation
-      this.renderable.setCurrentAnimation("dead");
-      // make it flicker and call destroy once timer finished
-      var self = this;
-      this.renderable.flicker(750, function () {
-        me.game.world.removeChild(self);
-      });
-      // dead sfx
-      me.audio.play("enemykill", false);
-      // give some score
-      game.data.score += 150;
+    if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
+      // res.y >0 means touched by something on the bottom
+      // which mean at top position for this one
+      if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
+        console.log("BirdEnemyEntity collision: ", this);
+      } else {
+        // make it dead
+        this.alive = false;
+        //avoid further collision and delete it
+        this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+        // set dead animation
+        this.renderable.setCurrentAnimation("dead");
+        // make it flicker and call destroy once timer finished
+        var self = this;
+        this.renderable.flicker(750, function () {
+          me.game.world.removeChild(self);
+        });
+        // dead sfx
+        me.audio.play("die", false);
+        // give some score
+        game.data.score += 150;
+      }
+
+      return false;
     }
 
-    return false;
+    return true;
   },
 });
 
@@ -433,27 +456,32 @@ game.SlimeEnemyEntity = me.Entity.extend({
    * collision handle
    */
   onCollision: function (response) {
-    // res.y >0 means touched by something on the bottom
-    // which mean at top position for this one
-    if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
-      // make it dead
-      this.alive = false;
-      //avoid further collision and delete it
-      this.body.setCollisionMask(me.collision.types.NO_OBJECT);
-      // set dead animation
-      this.renderable.setCurrentAnimation("dead");
-      // make it flicker and call destroy once timer finished
-      var self = this;
-      this.renderable.flicker(750, function () {
-        me.game.world.removeChild(self);
-      });
-      // dead sfx
-      me.audio.play("enemykill", false);
-      // give some score
-      game.data.score += 150;
-    }
+    if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
+      // res.y >0 means touched by something on the bottom
+      // which mean at top position for this one
+      if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
+        console.log("SlimeEnemyEntity collision: ", this);
+      } else {
+        // make it dead
+        this.alive = false;
+        //avoid further collision and delete it
+        this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+        // set dead animation
+        this.renderable.setCurrentAnimation("dead");
+        // make it flicker and call destroy once timer finished
+        var self = this;
+        this.renderable.flicker(750, function () {
+          me.game.world.removeChild(self);
+        });
+        // dead sfx
+        me.audio.play("die", false);
+        // give some score
+        game.data.score += 150;
+      }
 
-    return false;
+      return false;
+    }
+    return true;
   },
 });
 

@@ -47,13 +47,15 @@ game.TitleScreen = me.Stage.extend({
 
           this.scroller =
             "A JUMPING AND COIN COLLECTION GAME DEVELOPED BY ELLA & BIRHANU";
-          this.scrollerpos = 600;
+          // this.scrollerpos = 600;
+          this.scrollerpos = me.game.viewport.width + 600;
         },
 
         // some callback for the tween objects
         scrollover: function () {
           // reset to default value
-          this.scrollerpos = 640;
+          // this.scrollerpos = 640;
+          this.scrollerpos = me.game.viewport.width + 640;
           this.scrollertween
             .to({ scrollerpos: -2200 }, 10000)
             .onComplete(this.scrollover.bind(this))
@@ -68,10 +70,15 @@ game.TitleScreen = me.Stage.extend({
           this.font.draw(
             renderer,
             "PRESS ENTER TO PLAY",
-            me.game.viewport.width,
+            me.game.viewport.width - me.game.viewport.width / 10,
             me.game.viewport.height
           );
-          this.font.draw(renderer, this.scroller, this.scrollerpos, 840);
+          this.font.draw(
+            renderer,
+            this.scroller,
+            this.scrollerpos,
+            me.game.viewport.height / 1.2
+          );
         },
         onDestroyEvent: function () {
           //just in case

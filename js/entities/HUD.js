@@ -8,9 +8,9 @@ game.HUD.Container = me.Container.extend({
   init: function () {
     // call the constructor
     this._super(me.Container, "init", [
-      25,
-      25,
-      me.game.viewport.width - 300,
+      20,
+      20,
+      me.game.viewport.width - 180,
       50,
     ]);
     this.anchorPoint.set(0, 0);
@@ -28,11 +28,11 @@ game.HUD.Container = me.Container.extend({
     this.addChild(new game.HUD.ScoreItem(10, 15));
 
     // add our child score object at the top left corner
-    this.addChild(new game.HUD.LifeItem(this.width, 20));
+    this.addChild(new game.HUD.LifeItem(this.width, 15));
 
     // add our child credit object at the bottom right corner
     this.addChild(
-      new game.HUD.CreditItem(this.width, me.game.viewport.height - 100)
+      new game.HUD.CreditItem(this.width - 125, me.game.viewport.height - 110)
     );
   },
 });
@@ -188,14 +188,14 @@ game.HUD.CreditItem = me.Renderable.extend({
   draw: function (context) {
     // Set background container
     context.setColor("#fff");
-    context.fillRect(this.pos.x, this.pos.y, 250, 58);
+    context.fillRect(this.pos.x, this.pos.y, 250, 55);
 
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
     this.font.draw(
       context,
-      "Developed by:" + "\u0020" + "Ella & Birhanu",
-      this.pos.x + 17,
-      this.pos.y + 22
+      "Developers:" + "\u0020" + "Ella & Birhanu",
+      this.pos.x + 25,
+      this.pos.y + 20
     );
   },
 });

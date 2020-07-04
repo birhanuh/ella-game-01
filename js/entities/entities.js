@@ -173,17 +173,22 @@ game.CoinEntity = me.CollectableEntity.extend({
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
     console.log("CoinEntity settings", settings);
+    // delete settings.image;
     // call the parent constructor
     this._super(me.CollectableEntity, "init", [x, y, settings]);
-
-    // this.image = new me.Sprite(1, 1, {
-    //   image: game.texture,
-    //   region: "spinning_coin_gold",
-    //   width: 32,
-    //   height: 32,
-    //   framewidth: 32,
-    //   frameheight: 32,
-    // });
+    /** 
+    this.image = new me.Sprite(0, 0, {
+      image: game.texture,
+      region: "spinning_coin_gold",
+      width: 32,
+      height: 32,
+      framewidth: 32,
+      frameheight: 32,
+      alpha: 0.25,
+      anchorPoint: new me.Vector2d(0, 0),
+    });
+    */
+    console.log("CoinEntity image", this);
 
     // this.image.anchorPoint.set(0, 0);
 
@@ -323,8 +328,6 @@ game.BirdEnemyEntity = me.Entity.extend({
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
       if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
-        console.log("BirdEnemyEntity collision: ", this);
-      } else {
         // make it dead
         this.alive = false;
         //avoid further collision and delete it
@@ -340,6 +343,8 @@ game.BirdEnemyEntity = me.Entity.extend({
         me.audio.play("die", false);
         // give some score
         game.data.score += 150;
+      } else {
+        console.log("BirdEnemyEntity collision: ", this);
       }
 
       return false;
@@ -460,8 +465,6 @@ game.SlimeEnemyEntity = me.Entity.extend({
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
       if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
-        console.log("SlimeEnemyEntity collision: ", this);
-      } else {
         // make it dead
         this.alive = false;
         //avoid further collision and delete it
@@ -477,6 +480,8 @@ game.SlimeEnemyEntity = me.Entity.extend({
         me.audio.play("die", false);
         // give some score
         game.data.score += 150;
+      } else {
+        console.log("SlimeEnemyEntity collision: ", this);
       }
 
       return false;

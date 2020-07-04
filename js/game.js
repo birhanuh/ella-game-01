@@ -68,8 +68,8 @@ var game = {
     );
 
     // start the game
-    me.state.change(me.state.PLAY);
+    // me.state.change(me.state.PLAY);
     // display the menu title
-    // me.state.change(me.state.MENU);
+    me.state.change(me.state.MENU);
   },
 };

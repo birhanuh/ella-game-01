@@ -27,10 +27,10 @@ game.TitleScreen = me.Stage.extend({
         // constructor
         init: function () {
           this._super(me.Renderable, "init", [
-            0,
-            0,
-            me.game.viewport.width,
+            me.game.viewport.width / 2,
             me.game.viewport.height,
+            450,
+            400,
           ]);
 
           // font for the scrolling text
@@ -38,6 +38,15 @@ game.TitleScreen = me.Stage.extend({
             me.loader.getBinary("PressStart2P"),
             me.loader.getImage("PressStart2P")
           );
+
+          this.title = "JUMP JUMP";
+          this.start = "Press Enter To Start";
+
+          this.animate = new me.Tween(this.pos).to(
+            { y: me.game.viewport.height / 1.5 },
+            2000
+          );
+          this.animate.start();
 
           /** 
           // a tween to animate the arrow
@@ -71,6 +80,10 @@ game.TitleScreen = me.Stage.extend({
         },
 
         draw: function (renderer) {
+          this.font.draw(renderer, this.title, this.pos.x + 130, this.pos.y);
+          this.font.draw(renderer, this.start, this.pos.x, this.pos.y + 100);
+
+          /** 
           this.font.draw(
             renderer,
             "PRESS ENTER TO PLAY",
@@ -83,10 +96,11 @@ game.TitleScreen = me.Stage.extend({
             this.scrollerpos,
             me.game.viewport.height / 1.2
           );
+          */
         },
         onDestroyEvent: function () {
           //just in case
-          this.scrollertween.stop();
+          // this.scrollertween.stop();
         },
       }))(),
       2

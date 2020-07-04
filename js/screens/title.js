@@ -39,6 +39,7 @@ game.TitleScreen = me.Stage.extend({
             me.loader.getImage("PressStart2P")
           );
 
+          /** 
           // a tween to animate the arrow
           this.scrollertween = new me.Tween(this)
             .to({ scrollerpos: -2200 }, 10000)
@@ -49,8 +50,10 @@ game.TitleScreen = me.Stage.extend({
             "A JUMPING AND COIN COLLECTION GAME DEVELOPED BY ELLA & BIRHANU";
           // this.scrollerpos = 600;
           this.scrollerpos = me.game.viewport.width + 600;
+          */
         },
 
+        /** 
         // some callback for the tween objects
         scrollover: function () {
           // reset to default value
@@ -61,6 +64,7 @@ game.TitleScreen = me.Stage.extend({
             .onComplete(this.scrollover.bind(this))
             .start();
         },
+        */
 
         update: function (dt) {
           return true;
@@ -70,7 +74,7 @@ game.TitleScreen = me.Stage.extend({
           this.font.draw(
             renderer,
             "PRESS ENTER TO PLAY",
-            me.game.viewport.width - me.game.viewport.width / 10,
+            me.game.viewport.width - me.game.viewport.width / 8,
             me.game.viewport.height
           );
           this.font.draw(

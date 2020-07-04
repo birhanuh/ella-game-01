@@ -29,6 +29,11 @@ game.HUD.Container = me.Container.extend({
 
     // add our child score object at the top left corner
     this.addChild(new game.HUD.LifeItem(this.width, 20));
+
+    // add our child credit object at the bottom right corner
+    this.addChild(
+      new game.HUD.CreditItem(this.width, me.game.viewport.height - 100)
+    );
   },
 });
 
@@ -45,16 +50,18 @@ game.HUD.ScoreItem = me.Renderable.extend({
     this._super(me.Renderable, "init", [x, y]);
 
     // create the font object
-    // const font = (this.font = new me.BitmapFont(
-    //   me.loader.getBinary("PressStart2P"),
-    //   me.loader.getImage("PressStart2P")
-    // ));
+    const font = (this.font = new me.BitmapFont(
+      me.loader.getBinary("PressStart2P"),
+      me.loader.getImage("PressStart2P")
+    ));
+    /** 
     this.color = new me.Color(0, 0, 0);
     this.font = new me.Text(0, 0, {
       font: "Arial",
       size: 32,
       fillStyle: this.color,
     });
+    */
     this.font.fillStyle = this.color;
     // font alignment to right, bottom
     // this.font.textAlign = "right";
@@ -81,14 +88,10 @@ game.HUD.ScoreItem = me.Renderable.extend({
    * draw the score
    */
   draw: function (context) {
-    // Set background container
-    context.setColor("#fff");
-    context.fillRect(0, 0, 250, 58);
-
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
     this.font.draw(
       context,
-      "\u0020" + "Pis-teet:" + "\u0020" + game.data.score,
+      "Pis-teet:" + "\u0020" + game.data.score,
       this.pos.x,
       this.pos.y
     );
@@ -150,5 +153,49 @@ game.HUD.LifeItem = me.Renderable.extend({
     //     (this.lifeIcon.pos.y = this.pos.y);
     //   this.lifeIcon.draw(renderer, 0, 0);
     // }
+  },
+});
+
+/**
+ * a basic HUD item to display credit
+ */
+game.HUD.CreditItem = me.Renderable.extend({
+  /**
+   * constructor
+   */
+  init: function (x, y) {
+    // call the parent constructor
+    // (size does not matter here)
+    this._super(me.Renderable, "init", [x, y]);
+
+    // create the font object
+    this.color = new me.Color(0, 0, 0);
+    this.font = new me.Text(0, 0, {
+      font: "Arial",
+      size: 16,
+      fillStyle: this.color,
+    });
+
+    this.font.fillStyle = this.color;
+    // font alignment to right, bottom
+    // this.font.textAlign = "right";
+    // this.font.textBaseline = "bottom";
+  },
+
+  /**
+   * draw the score
+   */
+  draw: function (context) {
+    // Set background container
+    context.setColor("#fff");
+    context.fillRect(this.pos.x, this.pos.y, 250, 58);
+
+    // this.pos.x, this.pos.y are the relative position from the screen right bottom
+    this.font.draw(
+      context,
+      "Developed by:" + "\u0020" + "Ella & Birhanu",
+      this.pos.x + 17,
+      this.pos.y + 22
+    );
   },
 });

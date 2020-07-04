@@ -32,6 +32,8 @@ var game = {
 
   // Run on game resources loaded.
   loaded: function () {
+    me.debug.renderHitBox = true;
+
     // set the "Play/Ingame" Screen Object
     me.state.set(me.state.MENU, new game.TitleScreen());
 

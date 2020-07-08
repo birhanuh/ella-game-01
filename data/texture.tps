@@ -257,6 +257,26 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">img/ent/coin1.png</key>
+            <key type="filename">img/ent/coin2.png</key>
+            <key type="filename">img/ent/coin3.png</key>
+            <key type="filename">img/ent/coin4.png</key>
+            <key type="filename">img/ent/coin5.png</key>
+            <key type="filename">img/ent/coin6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9Paddings</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">img/ent/dimond.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -350,21 +370,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">img/sprite/spinning_coin_gold.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>64,8,128,16</rect>
-                <key>scale9Paddings</key>
-                <rect>64,8,128,16</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -376,7 +381,6 @@
             <filename>img/enemies/slime_walk.png</filename>
             <filename>img/gui/elama.png</filename>
             <filename>img/ent/dimond.png</filename>
-            <filename>img/sprite/spinning_coin_gold.png</filename>
             <filename>img/player/monkey1.png</filename>
             <filename>img/player/monkey2.png</filename>
             <filename>img/player/monkey3.png</filename>
@@ -384,6 +388,12 @@
             <filename>img/player/monkey5.png</filename>
             <filename>img/player/monkey6.png</filename>
             <filename>img/player/monkey7.png</filename>
+            <filename>img/ent/coin1.png</filename>
+            <filename>img/ent/coin2.png</filename>
+            <filename>img/ent/coin3.png</filename>
+            <filename>img/ent/coin4.png</filename>
+            <filename>img/ent/coin5.png</filename>
+            <filename>img/ent/coin6.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

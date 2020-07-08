@@ -185,29 +185,36 @@ game.CoinEntity = me.CollectableEntity.extend({
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
     console.log("CoinEntity settings", settings);
-    // delete settings.image;
+    delete settings.image;
     // call the parent constructor
     this._super(me.CollectableEntity, "init", [x, y, settings]);
-    /** 
-    this.image = new me.Sprite(0, 0, {
-      image: game.texture,
-      region: "spinning_coin_gold",
-      width: 32,
-      height: 32,
-      framewidth: 32,
-      frameheight: 32,
-      alpha: 0.25,
-      anchorPoint: new me.Vector2d(0, 0),
-    });
-    */
+
+    // set a renderable
+    this.renderable = game.texture.createAnimationFromName([
+      "coin1",
+      "coin2",
+      "coin3",
+      "coin4",
+      "coin5",
+      "coin6",
+    ]);
+
+    // this.coin = new me.Sprite(this.pos.x, this.pos.y, {
+    //   image: game.texture,
+    //   region: "coin1",
+    //   width: 32,
+    //   height: 32,
+    //   framewidth: 32,
+    //   frameheight: 32,
+    //   alpha: 0.25,
+    //   anchorPoint: new me.Vector2d(0, 0),
+    // });
+
+    // me.game.world.addChild(this.coin, 4);
     console.log("CoinEntity image", this);
 
-    // this.image.anchorPoint.set(0, 0);
-
     this.body = new me.Body(this);
-    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-
-    // me.game.world.addChild(cion);
+    this.body.addShape(new me.Rect(16, 16, this.width, this.height));
   },
 
   // this function is called by the engine, when
@@ -226,6 +233,7 @@ game.CoinEntity = me.CollectableEntity.extend({
 
     // remove it
     me.game.world.removeChild(this);
+    // me.game.world.removeChild(this.coin);
   },
 });
 

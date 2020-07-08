@@ -21,14 +21,26 @@ game.PlayerEntity = me.Entity.extend({
 
     // set a renderable
     this.renderable = game.texture.createAnimationFromName([
-      "walk1",
-      "walk2",
-      "walk3",
+      "monkey1",
+      "monkey2",
+      "monkey3",
+      "monkey4",
+      "monkey5",
+      "monkey6",
+      "monkey7",
     ]);
 
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation("walk", ["walk1", "walk2", "walk3"]);
-    this.renderable.addAnimation("stand", ["walk1"]);
+    this.renderable.addAnimation("walk", [
+      "monkey1",
+      "monkey2",
+      "monkey3",
+      "monkey4",
+      "monkey5",
+      "monkey6",
+      "monkey7",
+    ]);
+    this.renderable.addAnimation("stand", ["monkey1"]);
 
     // define a basic walking animation (using all frames)
     // this.renderable.addAnimation("walk", [0, 1, 2, 3, 4, 5, 6, 7]);
@@ -327,7 +339,7 @@ game.BirdEnemyEntity = me.Entity.extend({
     if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
-      if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
+      if (this.alive && response.overlapV.y > 0) {
         // make it dead
         this.alive = false;
         //avoid further collision and delete it
@@ -345,6 +357,7 @@ game.BirdEnemyEntity = me.Entity.extend({
         game.data.score += 150;
       } else {
         console.log("BirdEnemyEntity collision: ", this);
+        console.log("Response: ", response);
       }
 
       return false;
@@ -464,7 +477,7 @@ game.SlimeEnemyEntity = me.Entity.extend({
     if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
-      if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
+      if (this.alive && response.overlapV.y > 0) {
         // make it dead
         this.alive = false;
         //avoid further collision and delete it
@@ -482,6 +495,7 @@ game.SlimeEnemyEntity = me.Entity.extend({
         game.data.score += 150;
       } else {
         console.log("SlimeEnemyEntity collision: ", this);
+        console.log("Response: ", response);
       }
 
       return false;

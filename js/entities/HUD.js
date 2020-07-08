@@ -50,19 +50,12 @@ game.HUD.ScoreItem = me.Renderable.extend({
     this._super(me.Renderable, "init", [x, y]);
 
     // create the font object
-    const font = (this.font = new me.BitmapFont(
-      me.loader.getBinary("PressStart2P"),
-      me.loader.getImage("PressStart2P")
-    ));
-    /** 
-    this.color = new me.Color(0, 0, 0);
-    this.font = new me.Text(0, 0, {
-      font: "Arial",
-      size: 32,
-      fillStyle: this.color,
+    this.font = new me.BitmapText(0, 0, {
+      fontData: me.loader.getBinary("PressStart2P"),
+      font: me.loader.getImage("PressStart2P"),
     });
-    */
-    this.font.fillStyle = this.color;
+    // this.tint = new me.Color(0, 0, 0, 0.8);
+
     // font alignment to right, bottom
     // this.font.textAlign = "right";
     // this.font.textBaseline = "bottom";
@@ -170,13 +163,13 @@ game.HUD.CreditItem = me.Renderable.extend({
 
     // create the font object
     this.color = new me.Color(0, 0, 0);
-    this.font = new me.Text(0, 0, {
-      font: "Arial",
+    this.text = new me.Text(0, 0, {
+      font: "OpenSansLight",
       size: 16,
       fillStyle: this.color,
     });
 
-    this.font.fillStyle = this.color;
+    this.text.fillStyle = this.color;
     // font alignment to right, bottom
     // this.font.textAlign = "right";
     // this.font.textBaseline = "bottom";
@@ -191,7 +184,7 @@ game.HUD.CreditItem = me.Renderable.extend({
     context.fillRect(this.pos.x, this.pos.y, 250, 55);
 
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
-    this.font.draw(
+    this.text.draw(
       context,
       "Developers:" + "\u0020" + "Ella & Birhanu",
       this.pos.x + 25,

@@ -14,8 +14,10 @@ var game = {
     if (
       !me.video.init(1024, 512, {
         wrapper: "screen",
+        renderer: me.video.AUTO,
         scale: "auto",
         scaleMethod: "flex",
+        doubleBuffering: true,
       })
     ) {
       alert("Your browser does not support HTML5 canvas.");
@@ -68,8 +70,8 @@ var game = {
     );
 
     // start the game
-    // me.state.change(me.state.PLAY);
+    me.state.change(me.state.PLAY);
     // display the menu title
-    me.state.change(me.state.MENU);
+    // me.state.change(me.state.MENU);
   },
 };

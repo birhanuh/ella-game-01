@@ -2,7 +2,7 @@
 
 {
 	"filename": "dimond",
-	"frame": {"x":110,"y":69,"w":47,"h":47},
+	"frame": {"x":439,"y":1,"w":47,"h":47},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":2,"y":2,"w":47,"h":47},
@@ -10,7 +10,7 @@
 },
 {
 	"filename": "elama",
-	"frame": {"x":159,"y":102,"w":27,"h":23},
+	"frame": {"x":484,"y":50,"w":27,"h":23},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":27,"h":23},
@@ -18,7 +18,7 @@
 },
 {
 	"filename": "fly_dead",
-	"frame": {"x":110,"y":35,"w":69,"h":32},
+	"frame": {"x":258,"y":83,"w":69,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":32},
@@ -26,7 +26,7 @@
 },
 {
 	"filename": "fly_fly",
-	"frame": {"x":159,"y":69,"w":69,"h":31},
+	"frame": {"x":400,"y":83,"w":69,"h":31},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":31},
@@ -34,15 +34,71 @@
 },
 {
 	"filename": "fly_normal",
-	"frame": {"x":181,"y":35,"w":69,"h":32},
+	"frame": {"x":329,"y":83,"w":69,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":32},
 	"sourceSize": {"w":69,"h":32}
 },
 {
+	"filename": "monkey1",
+	"frame": {"x":1,"y":1,"w":68,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":80},
+	"sourceSize": {"w":68,"h":80}
+},
+{
+	"filename": "monkey2",
+	"frame": {"x":134,"y":1,"w":60,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":80},
+	"sourceSize": {"w":60,"h":80}
+},
+{
+	"filename": "monkey3",
+	"frame": {"x":319,"y":1,"w":58,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":80},
+	"sourceSize": {"w":58,"h":80}
+},
+{
+	"filename": "monkey4",
+	"frame": {"x":379,"y":1,"w":58,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":80},
+	"sourceSize": {"w":58,"h":80}
+},
+{
+	"filename": "monkey5",
+	"frame": {"x":196,"y":1,"w":60,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":80},
+	"sourceSize": {"w":60,"h":80}
+},
+{
+	"filename": "monkey6",
+	"frame": {"x":258,"y":1,"w":59,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":80},
+	"sourceSize": {"w":59,"h":80}
+},
+{
+	"filename": "monkey7",
+	"frame": {"x":71,"y":1,"w":61,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":80},
+	"sourceSize": {"w":61,"h":80}
+},
+{
 	"filename": "slime_dead",
-	"frame": {"x":1,"y":114,"w":54,"h":8},
+	"frame": {"x":1,"y":117,"w":54,"h":8},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":8},
@@ -50,7 +106,7 @@
 },
 {
 	"filename": "slime_normal",
-	"frame": {"x":230,"y":79,"w":43,"h":28},
+	"frame": {"x":439,"y":50,"w":43,"h":28},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":28},
@@ -58,7 +114,7 @@
 },
 {
 	"filename": "slime_walk",
-	"frame": {"x":275,"y":79,"w":43,"h":26},
+	"frame": {"x":471,"y":80,"w":43,"h":26},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":26},
@@ -66,43 +122,19 @@
 },
 {
 	"filename": "spinning_coin_gold",
-	"frame": {"x":1,"y":1,"w":255,"h":32},
+	"frame": {"x":1,"y":83,"w":255,"h":32},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":32},
 	"sourceSize": {"w":256,"h":32}
-},
-{
-	"filename": "walk1",
-	"frame": {"x":1,"y":35,"w":54,"h":77},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":77},
-	"sourceSize": {"w":54,"h":77}
-},
-{
-	"filename": "walk2",
-	"frame": {"x":57,"y":35,"w":51,"h":77},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":77},
-	"sourceSize": {"w":51,"h":77}
-},
-{
-	"filename": "walk3",
-	"frame": {"x":258,"y":1,"w":56,"h":76},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":76},
-	"sourceSize": {"w":56,"h":76}
 }],
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "texture.png",
 	"format": "RGBA8888",
-	"size": {"w":319,"h":126},
+	"size": {"w":515,"h":126},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:92cb810b392b3961e4643a3337b00f2e:2bb4266b283d631043577a797c04a01f:88db1022cd6b660616541d2788fcd4f7$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c0bc2a17cd6dcf34a3bcda5358dbeccf:4689d40cb677a0abf4b71e4287749bf3:88db1022cd6b660616541d2788fcd4f7$"
 }
 }

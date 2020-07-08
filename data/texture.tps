@@ -287,7 +287,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">img/player/walk1.png</key>
+            <key type="filename">img/player/monkey1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -296,13 +296,14 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>14,19,27,39</rect>
+                <rect>17,20,34,40</rect>
                 <key>scale9Paddings</key>
-                <rect>14,19,27,39</rect>
+                <rect>17,20,34,40</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">img/player/walk2.png</key>
+            <key type="filename">img/player/monkey2.png</key>
+            <key type="filename">img/player/monkey5.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -311,13 +312,15 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>13,19,25,39</rect>
+                <rect>15,20,30,40</rect>
                 <key>scale9Paddings</key>
-                <rect>13,19,25,39</rect>
+                <rect>15,20,30,40</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">img/player/walk3.png</key>
+            <key type="filename">img/player/monkey3.png</key>
+            <key type="filename">img/player/monkey4.png</key>
+            <key type="filename">img/player/monkey6.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -326,9 +329,24 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>14,19,28,38</rect>
+                <rect>15,20,29,40</rect>
                 <key>scale9Paddings</key>
-                <rect>14,19,28,38</rect>
+                <rect>15,20,29,40</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">img/player/monkey7.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>15,20,31,40</rect>
+                <key>scale9Paddings</key>
+                <rect>15,20,31,40</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -357,11 +375,15 @@
             <filename>img/enemies/slime_normal.png</filename>
             <filename>img/enemies/slime_walk.png</filename>
             <filename>img/gui/elama.png</filename>
-            <filename>img/player/walk1.png</filename>
-            <filename>img/player/walk2.png</filename>
-            <filename>img/player/walk3.png</filename>
             <filename>img/ent/dimond.png</filename>
             <filename>img/sprite/spinning_coin_gold.png</filename>
+            <filename>img/player/monkey1.png</filename>
+            <filename>img/player/monkey2.png</filename>
+            <filename>img/player/monkey3.png</filename>
+            <filename>img/player/monkey4.png</filename>
+            <filename>img/player/monkey5.png</filename>
+            <filename>img/player/monkey6.png</filename>
+            <filename>img/player/monkey7.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

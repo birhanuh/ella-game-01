@@ -4,7 +4,7 @@ game.PlayScreen = me.Stage.extend({
    */
   onResetEvent: function () {
     // load a level
-    me.levelDirector.loadLevel("area01");
+    me.levelDirector.loadLevel("level01");
 
     // reset the score
     game.data.score = 0;

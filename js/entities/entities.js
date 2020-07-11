@@ -20,15 +20,20 @@ game.PlayerEntity = me.Entity.extend({
     this.alwaysUpdate = true;
 
     // set a renderable
-    this.renderable = game.texture.createAnimationFromName([
-      "monkey1",
-      "monkey2",
-      "monkey3",
-      "monkey4",
-      "monkey5",
-      "monkey6",
-      "monkey7",
-    ]);
+    this.renderable = game.texture.createAnimationFromName(
+      [
+        "monkey1",
+        "monkey2",
+        "monkey3",
+        "monkey4",
+        "monkey5",
+        "monkey6",
+        "monkey7",
+      ],
+      {
+        anchorPoint: new me.Vector2d(0, 0),
+      }
+    );
 
     // define a basic walking animation (using all frames)
     this.renderable.addAnimation("walk", [
@@ -151,7 +156,7 @@ game.PlayerEntity = me.Entity.extend({
         break;
 
       case me.collision.types.ENEMY_OBJECT:
-        if (response.overlapV.y > 0 && !this.body.jumping) {
+        if (response.overlapV.y > 0 && this.body.jumping) {
           // bounce (force jump)
           this.body.falling = false;
           this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
@@ -160,10 +165,68 @@ game.PlayerEntity = me.Entity.extend({
           this.body.jumping = true;
 
           me.audio.play("stomp");
-        } else {
-          // let's flicker in case we touched an enemy
-          this.renderable.flicker(750);
+        } else if (response.overlapV.y === 0 && this.body.falling) {
+          // Validates slime collision
+          if (!this.renderable.isFlickering() && response.b.alive) {
+            // let's flicker in case we touched an enemy
+            this.renderable.flicker(750);
+            this.renderable.tint = new me.Color(255, 128, 128, 0.8);
+
+            // Decrease life
+            if (game.data.life !== 0) {
+              game.data.life = game.data.life - 1;
+            }
+
+            // Kill player when life is 0
+            if (game.data.life === 0) {
+              this.alive = false;
+              response.b.alive = false;
+              response.b.killed = true;
+              me.timer.setTimeout(() => {
+                me.state.change(me.state.GAME_OVER);
+              }, 100);
+            }
+
+            me.timer.setTimeout(() => {
+              if (!this.alive) {
+                return;
+              }
+              // disable the tint
+              this.renderable.tint.setColor(255, 255, 255);
+            }, 1000);
+          }
+        } else if (response.overlapV.y < 0 && !this.body.falling) {
+          // Validates fly collision
+          if (!this.renderable.isFlickering() && response.b.alive) {
+            // let's flicker in case we touched an enemy
+            this.renderable.flicker(750);
+            this.renderable.tint = new me.Color(255, 128, 128, 0.8);
+
+            // Decrease life
+            if (game.data.life !== 0) {
+              game.data.life = game.data.life - 1;
+            }
+
+            // Kill player when life is 0
+            if (game.data.life === 0) {
+              this.alive = false;
+              response.b.alive = false;
+              response.b.killed = true;
+              me.timer.setTimeout(() => {
+                me.state.change(me.state.GAME_OVER);
+              }, 100);
+            }
+
+            me.timer.setTimeout(() => {
+              if (!this.alive) {
+                return;
+              }
+              // disable the tint
+              this.renderable.tint.setColor(255, 255, 255);
+            }, 1000);
+          }
         }
+        break;
 
       // Fall through
 
@@ -184,20 +247,16 @@ game.CoinEntity = me.CollectableEntity.extend({
   // extending the init function is not mandatory
   // unless you need to add some extra initialization
   init: function (x, y, settings) {
-    console.log("CoinEntity settings", settings);
-    delete settings.image;
     // call the parent constructor
     this._super(me.CollectableEntity, "init", [x, y, settings]);
 
     // set a renderable
-    this.renderable = game.texture.createAnimationFromName([
-      "coin1",
-      "coin2",
-      "coin3",
-      "coin4",
-      "coin5",
-      "coin6",
-    ]);
+    this.renderable = game.texture.createAnimationFromName(
+      ["coin1", "coin2", "coin3", "coin4", "coin5", "coin6"],
+      {
+        anchorPoint: new me.Vector2d(0, 0),
+      }
+    );
 
     // this.coin = new me.Sprite(this.pos.x, this.pos.y, {
     //   image: game.texture,
@@ -211,10 +270,9 @@ game.CoinEntity = me.CollectableEntity.extend({
     // });
 
     // me.game.world.addChild(this.coin, 4);
-    console.log("CoinEntity image", this);
 
     this.body = new me.Body(this);
-    this.body.addShape(new me.Rect(16, 16, this.width, this.height));
+    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
   },
 
   // this function is called by the engine, when
@@ -240,7 +298,7 @@ game.CoinEntity = me.CollectableEntity.extend({
 /**
  * Bird enemy entity
  */
-game.BirdEnemyEntity = me.Entity.extend({
+game.FlyEnemyEntity = me.Entity.extend({
   /**
    * constructor
    */
@@ -291,11 +349,12 @@ game.BirdEnemyEntity = me.Entity.extend({
     this.isMovingEnemy = true;
 
     // set a renderable
-    this.renderable = game.texture.createAnimationFromName([
-      "fly_normal",
-      "fly_fly",
-      "fly_dead",
-    ]);
+    this.renderable = game.texture.createAnimationFromName(
+      ["fly_normal", "fly_fly", "fly_dead"],
+      {
+        anchorPoint: new me.Vector2d(0, 0),
+      }
+    );
 
     // custom animation speed ?
     if (settings.animationspeed) {
@@ -309,9 +368,6 @@ game.BirdEnemyEntity = me.Entity.extend({
 
     // set default one
     this.renderable.setCurrentAnimation("walk");
-
-    // set the renderable position to bottom center
-    this.anchorPoint.set(0.5, 1.0);
   },
   /**
    * manage the enemy movement
@@ -366,6 +422,16 @@ game.BirdEnemyEntity = me.Entity.extend({
       } else {
         console.log("BirdEnemyEntity collision: ", this);
         console.log("Response: ", response);
+        if (this.alive) {
+          // Inactivate enemy for two seconds
+          this.alive = false;
+          me.timer.setTimeout(() => {
+            if (this.killed) {
+              return false;
+            }
+            this.alive = true;
+          }, 2000);
+        }
       }
 
       return false;
@@ -429,11 +495,12 @@ game.SlimeEnemyEntity = me.Entity.extend({
     this.isMovingEnemy = true;
 
     // set a renderable
-    this.renderable = game.texture.createAnimationFromName([
-      "slime_normal",
-      "slime_walk",
-      "slime_dead",
-    ]);
+    this.renderable = game.texture.createAnimationFromName(
+      ["slime_normal", "slime_walk", "slime_dead"],
+      {
+        anchorPoint: new me.Vector2d(0, 0),
+      }
+    );
 
     // custom animation speed ?
     if (settings.animationspeed) {
@@ -447,9 +514,6 @@ game.SlimeEnemyEntity = me.Entity.extend({
 
     // set default one
     this.renderable.setCurrentAnimation("walk");
-
-    // set the renderable position to bottom center
-    this.anchorPoint.set(0.5, 1.0);
   },
   /**
    * manage the enemy movement
@@ -485,7 +549,7 @@ game.SlimeEnemyEntity = me.Entity.extend({
     if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
       // res.y >0 means touched by something on the bottom
       // which mean at top position for this one
-      if (this.alive && response.overlapV.y > 0) {
+      if (this.alive && response.overlapV.y > 0 && response.a.body.falling) {
         // make it dead
         this.alive = false;
         //avoid further collision and delete it
@@ -504,8 +568,17 @@ game.SlimeEnemyEntity = me.Entity.extend({
       } else {
         console.log("SlimeEnemyEntity collision: ", this);
         console.log("Response: ", response);
+        if (this.alive) {
+          // Inactivate enemy for two seconds
+          this.alive = false;
+          me.timer.setTimeout(() => {
+            if (this.killed) {
+              return false;
+            }
+            this.alive = true;
+          }, 2000);
+        }
       }
-
       return false;
     }
     return true;

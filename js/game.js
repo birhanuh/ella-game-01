@@ -39,6 +39,8 @@ var game = {
     // set the "Play/Ingame" Screen Object
     me.state.set(me.state.MENU, new game.TitleScreen());
 
+    me.state.set(me.state.GAME_OVER, new game.RestartScreen());
+
     // set the "Play/Ingame" Screen Object
     me.state.set(me.state.PLAY, new game.PlayScreen());
 
@@ -52,7 +54,7 @@ var game = {
 
     me.pool.register("player", game.PlayerEntity);
     me.pool.register("coin", game.CoinEntity);
-    me.pool.register("bird", game.BirdEnemyEntity);
+    me.pool.register("fly", game.FlyEnemyEntity);
     me.pool.register("slime", game.SlimeEnemyEntity);
 
     // enable the keyboard

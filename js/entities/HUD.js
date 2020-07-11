@@ -38,7 +38,7 @@ game.HUD.Container = me.Container.extend({
 });
 
 /**
- * a basic HUD item to display score
+ * Score HUD item to display score
  */
 game.HUD.ScoreItem = me.Renderable.extend({
   /**
@@ -47,7 +47,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
   init: function (x, y) {
     // call the parent constructor
     // (size does not matter here)
-    this._super(me.Renderable, "init", [x, y]);
+    this._super(me.Renderable, "init", [10, 15]);
 
     // create the font object
     this.font = new me.BitmapText(0, 0, {
@@ -92,7 +92,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
 });
 
 /**
- * a basic HUD item to display score
+ * Life HUD item to display score
  */
 game.HUD.LifeItem = me.Renderable.extend({
   /**
@@ -150,7 +150,7 @@ game.HUD.LifeItem = me.Renderable.extend({
 });
 
 /**
- * a basic HUD item to display credit
+ * Credit HUD item to display credit
  */
 game.HUD.CreditItem = me.Renderable.extend({
   /**
@@ -162,14 +162,14 @@ game.HUD.CreditItem = me.Renderable.extend({
     this._super(me.Renderable, "init", [x, y]);
 
     // create the font object
-    this.color = new me.Color(0, 0, 0);
-    this.text = new me.Text(0, 0, {
-      font: "OpenSansLight",
-      size: 16,
-      fillStyle: this.color,
+    this.font = new me.BitmapText(0, 0, {
+      fontData: me.loader.getBinary("OpenSansLight"),
+      font: me.loader.getImage("OpenSansLight"),
+      size: 0.6,
+      textBaseline: "middle",
     });
+    this.tint = new me.Color(0, 0, 0);
 
-    this.text.fillStyle = this.color;
     // font alignment to right, bottom
     // this.font.textAlign = "right";
     // this.font.textBaseline = "bottom";
@@ -184,10 +184,10 @@ game.HUD.CreditItem = me.Renderable.extend({
     context.fillRect(this.pos.x, this.pos.y, 250, 55);
 
     // this.pos.x, this.pos.y are the relative position from the screen right bottom
-    this.text.draw(
+    this.font.draw(
       context,
       "Developers:" + "\u0020" + "Ella & Birhanu",
-      this.pos.x + 25,
+      this.pos.x + 10,
       this.pos.y + 20
     );
   },

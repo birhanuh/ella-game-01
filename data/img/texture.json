@@ -2,7 +2,7 @@
 
 {
 	"filename": "coin1",
-	"frame": {"x":71,"y":108,"w":32,"h":32},
+	"frame": {"x":81,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
@@ -10,55 +10,55 @@
 },
 {
 	"filename": "coin2",
-	"frame": {"x":71,"y":142,"w":30,"h":32},
+	"frame": {"x":113,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":0,"w":30,"h":32},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "coin3",
-	"frame": {"x":105,"y":108,"w":17,"h":32},
+	"frame": {"x":145,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":0,"w":17,"h":32},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "coin4",
-	"frame": {"x":103,"y":176,"w":7,"h":32},
+	"frame": {"x":177,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":13,"y":0,"w":7,"h":32},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "coin5",
-	"frame": {"x":103,"y":142,"w":17,"h":32},
+	"frame": {"x":209,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":0,"w":17,"h":32},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "coin6",
-	"frame": {"x":71,"y":176,"w":30,"h":32},
+	"frame": {"x":241,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":0,"w":30,"h":32},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "dimond",
-	"frame": {"x":72,"y":1,"w":47,"h":47},
+	"frame": {"x":138,"y":32,"w":51,"h":51},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":2,"w":47,"h":47},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":51},
 	"sourceSize": {"w":51,"h":51}
 },
 {
 	"filename": "elama",
-	"frame": {"x":1,"y":440,"w":27,"h":23},
+	"frame": {"x":54,"y":0,"w":27,"h":23},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":27,"h":23},
@@ -66,7 +66,7 @@
 },
 {
 	"filename": "fly_dead",
-	"frame": {"x":1,"y":1,"w":69,"h":32},
+	"frame": {"x":0,"y":32,"w":69,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":32},
@@ -74,7 +74,7 @@
 },
 {
 	"filename": "fly_fly",
-	"frame": {"x":1,"y":69,"w":69,"h":31},
+	"frame": {"x":359,"y":0,"w":69,"h":31},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":31},
@@ -82,7 +82,7 @@
 },
 {
 	"filename": "fly_normal",
-	"frame": {"x":1,"y":35,"w":69,"h":32},
+	"frame": {"x":69,"y":32,"w":69,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":32},
@@ -90,7 +90,7 @@
 },
 {
 	"filename": "monkey1",
-	"frame": {"x":1,"y":102,"w":68,"h":80},
+	"frame": {"x":61,"y":112,"w":68,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":80},
@@ -98,7 +98,7 @@
 },
 {
 	"filename": "monkey2",
-	"frame": {"x":1,"y":266,"w":60,"h":80},
+	"frame": {"x":363,"y":32,"w":60,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":80},
@@ -106,7 +106,7 @@
 },
 {
 	"filename": "monkey3",
-	"frame": {"x":64,"y":210,"w":58,"h":80},
+	"frame": {"x":246,"y":32,"w":58,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":80},
@@ -114,15 +114,15 @@
 },
 {
 	"filename": "monkey4",
-	"frame": {"x":63,"y":374,"w":58,"h":80},
+	"frame": {"x":189,"y":32,"w":57,"h":80},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":80},
-	"sourceSize": {"w":58,"h":80}
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":80},
+	"sourceSize": {"w":57,"h":80}
 },
 {
 	"filename": "monkey5",
-	"frame": {"x":1,"y":348,"w":60,"h":80},
+	"frame": {"x":423,"y":32,"w":60,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":80},
@@ -130,7 +130,7 @@
 },
 {
 	"filename": "monkey6",
-	"frame": {"x":63,"y":292,"w":59,"h":80},
+	"frame": {"x":304,"y":32,"w":59,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":80},
@@ -138,15 +138,23 @@
 },
 {
 	"filename": "monkey7",
-	"frame": {"x":1,"y":184,"w":61,"h":80},
+	"frame": {"x":0,"y":112,"w":61,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":80},
 	"sourceSize": {"w":61,"h":80}
 },
 {
+	"filename": "restart",
+	"frame": {"x":129,"y":112,"w":344,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":344,"h":100},
+	"sourceSize": {"w":344,"h":100}
+},
+{
 	"filename": "slime_dead",
-	"frame": {"x":1,"y":430,"w":54,"h":8},
+	"frame": {"x":0,"y":0,"w":54,"h":8},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":8},
@@ -154,7 +162,7 @@
 },
 {
 	"filename": "slime_normal",
-	"frame": {"x":72,"y":50,"w":43,"h":28},
+	"frame": {"x":316,"y":0,"w":43,"h":28},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":28},
@@ -162,7 +170,7 @@
 },
 {
 	"filename": "slime_walk",
-	"frame": {"x":72,"y":80,"w":43,"h":26},
+	"frame": {"x":273,"y":0,"w":43,"h":26},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":26},
@@ -173,8 +181,8 @@
 	"version": "1.0",
 	"image": "texture.png",
 	"format": "RGBA8888",
-	"size": {"w":123,"h":464},
+	"size": {"w":483,"h":212},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:7acbed1c65e2024a9e56df1395963b4b:491557ba7d50ba15839a878c19de48ed:88db1022cd6b660616541d2788fcd4f7$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d76b02bef67efb3fa4d8895fec2c597c:22104d44be37a28c8fafb9234f13259e:88db1022cd6b660616541d2788fcd4f7$"
 }
 }

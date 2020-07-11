@@ -6,8 +6,9 @@ game.PlayScreen = me.Stage.extend({
     // load a level
     me.levelDirector.loadLevel("level01");
 
-    // reset the score
+    // reset the score and life
     game.data.score = 0;
+    game.data.life = 3;
 
     // Add our HUD to the game world, add it last so that this is on top of the rest.
     // Can also be forced by specifying a "Infinity" z value to the addChild function.
@@ -15,7 +16,7 @@ game.PlayScreen = me.Stage.extend({
     me.game.world.addChild(this.HUD);
 
     // play the audio track
-    me.audio.playTrack("dst-inertexponent");
+    // me.audio.playTrack("dst-inertexponent");
   },
 
   /**

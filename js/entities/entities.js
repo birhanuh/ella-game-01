@@ -109,6 +109,12 @@ game.PlayerEntity = me.Entity.extend({
 
     // If object in not in viewport it probably has died
     if (!this.inViewport) {
+      // Decrease life
+      if (game.data.life !== 0 && this.alive) {
+        game.data.life = game.data.life - 1;
+      }
+      this.alive = false;
+
       // fade the camera to white upon dying, reload the level, and then fade out back
       me.game.viewport.fadeIn("#fff", 150, function () {
         me.audio.play("die", false);
@@ -171,10 +177,9 @@ game.PlayerEntity = me.Entity.extend({
             // let's flicker in case we touched an enemy
             this.renderable.flicker(750);
             this.renderable.tint = new me.Color(255, 128, 128, 0.8);
-
             // Decrease life
             if (game.data.life !== 0) {
-              game.data.life = game.data.life - 1;
+              // game.data.life = game.data.life - 1;
             }
 
             // Kill player when life is 0
@@ -182,6 +187,9 @@ game.PlayerEntity = me.Entity.extend({
               this.alive = false;
               response.b.alive = false;
               response.b.killed = true;
+
+              // play a "enemy kill" sound
+              me.audio.play("enemykill");
               me.timer.setTimeout(() => {
                 me.state.change(me.state.GAME_OVER);
               }, 100);
@@ -195,7 +203,7 @@ game.PlayerEntity = me.Entity.extend({
               this.renderable.tint.setColor(255, 255, 255);
             }, 1000);
           }
-        } else if (response.overlapV.y < 0 && !this.body.falling) {
+        } else if (response.overlapV.y < 0 && !this.body.jumping) {
           // Validates fly collision
           if (!this.renderable.isFlickering() && response.b.alive) {
             // let's flicker in case we touched an enemy
@@ -204,7 +212,7 @@ game.PlayerEntity = me.Entity.extend({
 
             // Decrease life
             if (game.data.life !== 0) {
-              game.data.life = game.data.life - 1;
+              // game.data.life = game.data.life - 1;
             }
 
             // Kill player when life is 0
@@ -250,6 +258,9 @@ game.CoinEntity = me.CollectableEntity.extend({
     // call the parent constructor
     this._super(me.CollectableEntity, "init", [x, y, settings]);
 
+    // set a "COLLECTABLE_OBJECT" type
+    this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+
     // set a renderable
     this.renderable = game.texture.createAnimationFromName(
       ["coin1", "coin2", "coin3", "coin4", "coin5", "coin6"],
@@ -292,6 +303,56 @@ game.CoinEntity = me.CollectableEntity.extend({
     // remove it
     me.game.world.removeChild(this);
     // me.game.world.removeChild(this.coin);
+  },
+});
+
+/**
+ * a Coin entity
+ */
+game.DimondEntity = me.CollectableEntity.extend({
+  // extending the init function is not mandatory
+  // unless you need to add some extra initialization
+  init: function (x, y, settings) {
+    // call the parent constructor
+    this._super(me.CollectableEntity, "init", [x, y, settings]);
+
+    // set a "COLLECTABLE_OBJECT" type
+    this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+
+    this.coin = new me.Sprite(this.pos.x, this.pos.y, {
+      image: game.texture,
+      region: "dimond",
+      width: 51,
+      height: 51,
+      framewidth: 51,
+      frameheight: 51,
+      alpha: 0.25,
+      anchorPoint: new me.Vector2d(0, 0),
+    });
+
+    me.game.world.addChild(this.coin, 4);
+
+    this.body = new me.Body(this);
+    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+  },
+
+  // this function is called by the engine, when
+  // an object is touched by something (here collected)
+  onCollision: function (response, other) {
+    // do something when collected
+
+    // play a "coin collected" sound
+    me.audio.play("cling");
+
+    // give some score
+    game.data.score += 500;
+
+    // make sure it cannot be collected "again"
+    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+
+    // remove it
+    me.game.world.removeChild(this);
+    me.game.world.removeChild(this.coin);
   },
 });
 

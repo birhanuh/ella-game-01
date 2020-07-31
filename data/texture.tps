@@ -286,9 +286,26 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>13,13,25,25</rect>
+                <rect>8,8,17,17</rect>
                 <key>scale9Paddings</key>
-                <rect>13,13,25,25</rect>
+                <rect>8,8,17,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">img/ent/left.png</key>
+            <key type="filename">img/ent/right.png</key>
+            <key type="filename">img/ent/up.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>20,20,41,40</rect>
+                <key>scale9Paddings</key>
+                <rect>20,20,41,40</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -395,7 +412,6 @@
             <filename>img/enemies/slime_normal.png</filename>
             <filename>img/enemies/slime_walk.png</filename>
             <filename>img/gui/elama.png</filename>
-            <filename>img/ent/dimond.png</filename>
             <filename>img/player/monkey1.png</filename>
             <filename>img/player/monkey2.png</filename>
             <filename>img/player/monkey3.png</filename>
@@ -410,6 +426,10 @@
             <filename>img/ent/coin5.png</filename>
             <filename>img/ent/coin6.png</filename>
             <filename>img/ent/restart.png</filename>
+            <filename>img/ent/dimond.png</filename>
+            <filename>img/ent/left.png</filename>
+            <filename>img/ent/right.png</filename>
+            <filename>img/ent/up.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -7,7 +7,7 @@
          "image":"..\/..\/..\/img\/bg\/desert-trimed.png",
          "name":"Parallax_layer1",
          "offsetx":0,
-         "offsety":1.44928,
+         "offsety":17.8939437066272,
          "opacity":1,
          "properties":[
                 {
@@ -59,26 +59,40 @@
          "name":"entity",
          "objects":[
                 {
-                 "height":38,
-                 "id":3,
+                 "height":0,
+                 "id":18,
                  "name":"player",
-                 "properties":[
+                 "polygon":[
                         {
-                         "name":"frameHeight",
-                         "type":"int",
-                         "value":38
+                         "x":0,
+                         "y":0
                         }, 
                         {
-                         "name":"frameWidth",
-                         "type":"int",
-                         "value":27
+                         "x":-26,
+                         "y":0
+                        }, 
+                        {
+                         "x":-51,
+                         "y":-29
+                        }, 
+                        {
+                         "x":-13,
+                         "y":-79
+                        }, 
+                        {
+                         "x":8,
+                         "y":-79
+                        }, 
+                        {
+                         "x":19,
+                         "y":-20
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":27,
-                 "x":65.2174,
-                 "y":407.246
+                 "width":0,
+                 "x":88,
+                 "y":445
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -153,7 +167,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":17,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.1",

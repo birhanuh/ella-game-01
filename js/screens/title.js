@@ -141,13 +141,12 @@ game.RestartScreen = me.Stage.extend({
    *  action to perform on state change
    */
   onResetEvent: function () {
-    // play the audio track
-    me.audio.playTrack("dst-inertexponent");
+    me.game.world.addChild(new me.ColorLayer("background", "#ffffff"), 0);
 
     const posX = me.game.viewport.width / 2;
     const posY = me.game.viewport.height / 2;
 
-    const actionButton = me.GUI_Object.extend({
+    const ActionButton = me.GUI_Object.extend({
       init: function (x, y, settings) {
         this.level = 1;
         this._super(me.GUI_Object, "init", [x, y, settings]);
@@ -164,12 +163,8 @@ game.RestartScreen = me.Stage.extend({
       },
     });
 
-    this.body = new me.Body(this);
-    this.body.tint = new me.Color(255, 255, 255);
-    this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-
     me.game.world.addChild(
-      new actionButton(posX, posY, {
+      new ActionButton(posX, posY, {
         image: game.texture,
         region: "restart",
         level: 1,
@@ -185,12 +180,5 @@ game.RestartScreen = me.Stage.extend({
   /**
    *  action to perform when leaving this screen (state change)
    */
-  onDestroyEvent: function () {
-    // stop the current audio track
-    me.audio.stopTrack();
-
-    // me.input.unbindKey(me.input.KEY.ENTER);
-    // me.input.unbindPointer(me.input.pointer.LEFT);
-    // me.event.unsubscribe(this.handler);
-  },
+  onDestroyEvent: function () {},
 });

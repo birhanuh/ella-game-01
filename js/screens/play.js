@@ -16,7 +16,7 @@ game.PlayScreen = me.Stage.extend({
     me.game.world.addChild(this.HUD);
 
     // play the audio track
-    // me.audio.playTrack("dst-inertexponent");
+    me.audio.playTrack("dst-inertexponent");
   },
 
   /**

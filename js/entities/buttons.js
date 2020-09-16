@@ -1,4 +1,4 @@
-export const ControlButton = me.GUI_Object.extend({
+game.ControlButton = me.GUI_Object.extend({
   init: function (x, y, settings) {
     if (!settings) {
       settings = {

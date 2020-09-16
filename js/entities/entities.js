@@ -178,8 +178,8 @@ game.PlayerEntity = me.Entity.extend({
             this.renderable.flicker(750);
             this.renderable.tint = new me.Color(255, 128, 128, 0.8);
             // Decrease life
-            if (game.data.life !== 0) {
-              // game.data.life = game.data.life - 1;
+            if (game.data.life !== 0 && this.alive) {
+              game.data.life = game.data.life - 1;
             }
 
             // Kill player when life is 0
@@ -211,8 +211,8 @@ game.PlayerEntity = me.Entity.extend({
             this.renderable.tint = new me.Color(255, 128, 128, 0.8);
 
             // Decrease life
-            if (game.data.life !== 0) {
-              // game.data.life = game.data.life - 1;
+            if (game.data.life !== 0 && this.alive) {
+              game.data.life = game.data.life - 1;
             }
 
             // Kill player when life is 0
@@ -322,10 +322,10 @@ game.DimondEntity = me.CollectableEntity.extend({
     this.coin = new me.Sprite(this.pos.x, this.pos.y, {
       image: game.texture,
       region: "dimond",
-      width: 51,
-      height: 51,
-      framewidth: 51,
-      frameheight: 51,
+      width: 32,
+      height: 32,
+      framewidth: 32,
+      frameheight: 32,
       alpha: 0.25,
       anchorPoint: new me.Vector2d(0, 0),
     });

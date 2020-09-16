@@ -1,3 +1,65 @@
+const ControlButton = me.GUI_Object.extend({
+  init: function (x, y, settings) {
+    if (!settings) {
+      settings = {
+        region: game.texture,
+        image: "right",
+        framewidth: 80,
+        frameheight: 80,
+        width: 80,
+        height: 80,
+      };
+    }
+    this._super(me.GUI_Object, "init", [x, y, settings]);
+    this.type = settings.type || "right";
+    me.input.registerPointerEvent("pointerdown", this, this.onHold.bind(this));
+    me.input.registerPointerEvent("pointerup", this, this.onRelease.bind(this));
+    me.input.registerPointerEvent(
+      "pointercancel",
+      this,
+      this.onRelease.bind(this)
+    );
+  },
+
+  onClick: function () {
+    console.log("click meee");
+  },
+
+  onHold: function (event) {
+    switch (this.type) {
+      case "right":
+        me.input.triggerKeyEvent(me.input.KEY.RIGHT, true);
+        break;
+      case "left":
+        me.input.triggerKeyEvent(me.input.KEY.LEFT, true);
+        break;
+      case "up":
+        me.input.triggerKeyEvent(me.input.KEY.UP, true);
+        break;
+      default:
+        me.input.triggerKeyEvent(me.input.KEY.RIGHT, true);
+        break;
+    }
+  },
+
+  onRelease: function (event) {
+    switch (this.type) {
+      case "right":
+        me.input.triggerKeyEvent(me.input.KEY.RIGHT, false);
+        break;
+      case "left":
+        me.input.triggerKeyEvent(me.input.KEY.LEFT, false);
+        break;
+      case "up":
+        me.input.triggerKeyEvent(me.input.KEY.UP, false);
+        break;
+      default:
+        me.input.triggerKeyEvent(me.input.KEY.RIGHT, false);
+        break;
+    }
+  },
+});
+
 /**
  * a HUD container and child items
  */
@@ -32,7 +94,57 @@ game.HUD.Container = me.Container.extend({
 
     // add our child credit object at the bottom right corner
     this.addChild(
-      new game.HUD.CreditItem(this.width - 125, me.game.viewport.height - 110)
+      new game.HUD.CreditItem(
+        me.game.viewport.width / 2 - 125,
+        me.game.viewport.height - 110
+      )
+    );
+
+    this.addChild(
+      new ControlButton(80, me.game.viewport.height - 80, {
+        image: game.texture,
+        region: "up",
+        type: "up",
+        width: 80,
+        height: 80,
+        framewidth: 80,
+        frameheight: 80,
+      }),
+      1
+    );
+
+    this.addChild(
+      new ControlButton(
+        me.game.viewport.width - 80,
+        me.game.viewport.height - 80,
+        {
+          image: game.texture,
+          region: "right",
+          type: "right",
+          width: 80,
+          height: 80,
+          framewidth: 80,
+          frameheight: 80,
+        }
+      ),
+      1
+    );
+
+    this.addChild(
+      new ControlButton(
+        me.game.viewport.width - 200,
+        me.game.viewport.height - 80,
+        {
+          image: game.texture,
+          region: "left",
+          type: "left",
+          width: 80,
+          height: 80,
+          framewidth: 80,
+          frameheight: 80,
+        }
+      ),
+      1
     );
   },
 });
@@ -45,9 +157,10 @@ game.HUD.ScoreItem = me.Renderable.extend({
    * constructor
    */
   init: function (x, y) {
+    console.log("KKK: ", x, y);
     // call the parent constructor
     // (size does not matter here)
-    this._super(me.Renderable, "init", [10, 15]);
+    this._super(me.Renderable, "init", [x, y]);
 
     // create the font object
     this.font = new me.BitmapText(0, 0, {

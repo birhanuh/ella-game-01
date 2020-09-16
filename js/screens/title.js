@@ -151,11 +151,11 @@ game.RestartScreen = me.Stage.extend({
         this.level = 1;
         this._super(me.GUI_Object, "init", [x, y, settings]);
         this.pos.z = 100;
-        this.action = "menu";
+        this.action = settings.action ? settings.action : "menu";
       },
 
       onClick: function (event) {
-        if (this.action === "menu") {
+        if (this.action === "restart") {
           me.levelDirector.reloadLevel();
           me.state.change(me.state.PLAY);
         }
@@ -165,6 +165,7 @@ game.RestartScreen = me.Stage.extend({
 
     me.game.world.addChild(
       new ActionButton(posX, posY, {
+        action: "restart",
         image: game.texture,
         region: "restart",
         level: 1,

@@ -24,7 +24,7 @@ game.PlayScreen = me.Stage.extend({
    */
   onDestroyEvent: function () {
     // remove the HUD from the game world
-    me.game.world.removeChild(this.HUD);
+    // me.game.world.removeChild(this.HUD);
 
     // stop the current audio track
     me.audio.stopTrack();

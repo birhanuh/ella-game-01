@@ -1,13 +1,21 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json",
+         "target":"level02.json"
+        }
+    },
  "height":16,
  "infinite":false,
  "layers":[
         {
          "id":3,
-         "image":"..\/..\/..\/img\/bg\/desert-trimed.png",
+         "image":"..\/img\/bg\/desert-customized.png",
          "name":"Parallax_layer1",
-         "offsetx":0,
-         "offsety":17.8939437066272,
+         "offsetx":3,
+         "offsety":-0.106100000000001,
          "opacity":1,
          "properties":[
                 {
